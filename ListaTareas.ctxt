@@ -8,4 +8,6 @@ comment2.params=
 comment2.target=void\ muestraTareas()
 comment3.params=posicion
 comment3.target=void\ completarTarea(int)
-numComments=4
+comment4.params=textoCoincidente
+comment4.target=void\ mostrarTareasCoincidentes(java.lang.String)
+numComments=5

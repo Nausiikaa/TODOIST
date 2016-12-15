@@ -33,6 +33,18 @@ public class ListaTareas
     public void completarTarea(int posicion)
     {
         int index = posicion;
-        listaDeTareas.get(index - 1).completar();
+		if(index > 0 && index <= listaDeTareas.size()){
+			listaDeTareas.get(index - 1).completar();
+		}
+        else{
+			System.out.println("No existe esa Tarea");
+		}
     }
+	public void mostrarTareasCoincidentes(String textoCoincidente)
+	{
+		int index = 0;
+		while(index < listaDeTareas.size()){
+			
+		}
+	}
 }
