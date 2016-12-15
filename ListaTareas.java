@@ -51,4 +51,14 @@ public class ListaTareas
 			index ++;
 		}
 	}
+	public void eliminarTarea(int posicion)
+	{
+		int index = posicion;
+		if(index > 0 && index <= listaDeTareas.size()){
+			listaDeTareas.remove(index - 1);
+		}
+		else{
+			System.out.println("No existe esa Tarea");
+		}
+	}
 }
