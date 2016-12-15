@@ -18,4 +18,16 @@ public class Tarea
         tareaEstaHecha = false;
         this.nombreTarea = nombreTarea;
     }
+    public boolean getCompletada()
+    {
+        return tareaEstaHecha;
+    }
+    public String getNombre()
+    {
+        return nombreTarea;
+    }
+    public void completar()
+    {
+        tareaEstaHecha = true;
+    }
 }

@@ -22,4 +22,17 @@ public class ListaTareas
         Tarea nuevaTarea = new Tarea(nombreTarea);
         listaDeTareas.add(nuevaTarea);
     }
+    public void muestraTareas(){
+        int index = 0;
+        while(index < listaDeTareas.size()){
+            System.out.println((index + 1) + ". " + listaDeTareas.get(index).getNombre() + " " +
+                               listaDeTareas.get(index).getCompletada());
+            index ++;
+        }
+    }
+    public void completarTarea(int posicion)
+    {
+        int index = posicion;
+        listaDeTareas.get(index - 1).completar();
+    }
 }
