@@ -44,7 +44,11 @@ public class ListaTareas
 	{
 		int index = 0;
 		while(index < listaDeTareas.size()){
-			
+			if(listaDeTareas.get(index).getNombre().contains(textoCoincidente)){
+				System.out.println((index + 1) + ". " + listaDeTareas.get(index).getNombre() 
+				+ " " + listaDeTareas.get(index).getCompletada());
+			}
+			index ++;
 		}
 	}
 }
