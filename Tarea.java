@@ -39,12 +39,12 @@ public class Tarea
     }
     public String toString()
     {
-        String textoADevolver = nombreTarea + "(" + prioridad + ")";
+        String textoADevolver = nombreTarea + " (" + prioridad + ") ";
         if(tareaEstaHecha == true){
-            textoADevolver = textoADevolver + "Hecha ";
+            textoADevolver = textoADevolver + " Hecha ";
         }
         if(fechaVencimiento != null){
-            textoADevolver = textoADevolver + " (" + fechaVencimiento + "(";
+            textoADevolver = textoADevolver + " (" + fechaVencimiento + ")";
         }
         return textoADevolver;
     }
@@ -57,5 +57,13 @@ public class Tarea
     public void cambiarFecha(int año, int mes, int dia)
     {
         fechaVencimiento = LocalDate.of(año,mes,dia);
+    }
+    public LocalDate getfechaVencimiento()
+    {
+        return fechaVencimiento;
+    }
+    public int getPrioridad()
+    {
+        return prioridad;
     }
 }

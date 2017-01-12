@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.time.LocalDate;
 /**
  * Write a description of class ListaTareas here.
  * 
@@ -45,7 +46,7 @@ public class ListaTareas
         while(index < listaDeTareas.size()){
             if(listaDeTareas.get(index).getNombre().contains(textoCoincidente)){
 
-                System.out.println((index + 1) + ". " + listaDeTareas.get(index).toString());
+                System.out.println((index + 1) + ". " + listaDeTareas.get(index).toString() + " " + listaDeTareas.get(index).getfechaVencimiento());
             }
             index ++;
         }
@@ -79,5 +80,71 @@ public class ListaTareas
     {
         int index = posicion - 1;
         listaDeTareas.get(index).cambiarFecha(año,mes,dia);
+    }
+    public void mostrarTareasConFechaDeVencimientoHoy()
+    {
+        int index = 0;
+        LocalDate ahora = LocalDate.now();
+        while(index < listaDeTareas.size()){
+            if(listaDeTareas.get(index).getfechaVencimiento() != null){
+                if(listaDeTareas.get(index).getfechaVencimiento().isEqual(ahora)){
+                    System.out.println((index + 1) + ". " + listaDeTareas.get(index).toString());
+                }
+            }
+            index++;
+        }
+    }
+    public void mostrarVencidas(){
+        int index = 0;
+        LocalDate ahora = LocalDate.now();
+        while(index < listaDeTareas.size()){
+            if(listaDeTareas.get(index).getfechaVencimiento() != null){
+                if(listaDeTareas.get(index).getfechaVencimiento().isBefore(ahora)){
+                    System.out.println((index + 1) + ". " + listaDeTareas.get(index).toString());
+                }
+            }
+            index++;
+        }
+    }
+    public void verTareaMasPrioritaria(){
+        int maximaPrioridad = 0;
+        int index = 0;
+        while(index < listaDeTareas.size()){
+            if(listaDeTareas.get(index).getPrioridad() > maximaPrioridad){
+                maximaPrioridad = listaDeTareas.get(index).getPrioridad();
+            }
+            index++;
+        }
+        index = 0;
+        while(index < listaDeTareas.size()){
+            if(listaDeTareas.get(index).getPrioridad() == maximaPrioridad){
+                System.out.println((index + 1) + ". " + listaDeTareas.get(index).toString());
+            }
+            index++;
+        }
+    }
+    public void verTareaMasPrioritaria2(){
+        int maximaPrioridad = 0;
+        int index = 0;
+        while(index < listaDeTareas.size()){
+            if(listaDeTareas.get(index).getPrioridad() > maximaPrioridad){
+                maximaPrioridad = listaDeTareas.get(index).getPrioridad();
+            }
+            index++;
+        }
+        index = 0;
+        if(listaDeTareas.size() > 0){
+            Tarea tareaMasPrioritaria = listaDeTareas.get(0);
+            while(index < listaDeTareas.size()){
+                if(listaDeTareas.get(index).getPrioridad() == maximaPrioridad){
+                    tareaMasPrioritaria = listaDeTareas.get(index);
+                }
+                index++;
+            }
+            System.out.println((index + 1) + ". " + listaDeTareas.get(index).toString());
+        }
+        else{
+            System.out.println("No hay tareas en la lista.");
+        }
     }
 }
