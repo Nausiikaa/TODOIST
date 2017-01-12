@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=nombreTarea
-comment0.target=Tarea(java.lang.String)
+comment0.params=nombreTarea\ id
+comment0.target=Tarea(java.lang.String,\ int)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Tareas\r\n
 comment1.params=
 comment1.target=boolean\ getCompletada()
@@ -19,4 +19,6 @@ comment7.params=
 comment7.target=java.time.LocalDate\ getfechaVencimiento()
 comment8.params=
 comment8.target=int\ getPrioridad()
-numComments=9
+comment9.params=
+comment9.target=int\ getId()
+numComments=10

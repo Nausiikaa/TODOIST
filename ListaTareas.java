@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class ListaTareas
 {
     private ArrayList<Tarea> listaDeTareas;
-
+    private int contadorId;
     /**
      * Constructor for objects of class ListaTareas
      */
@@ -17,11 +17,18 @@ public class ListaTareas
     {
         //Constructor de la Coleccion
         listaDeTareas = new ArrayList<Tarea>();
+        contadorId = 10;
     }
     public void anadirTarea(String nombreTarea)
     {
-        Tarea nuevaTarea = new Tarea(nombreTarea);
-        listaDeTareas.add(nuevaTarea);
+        if(contadorId >= 10 && contadorId <= 99){
+            Tarea nuevaTarea = new Tarea(nombreTarea, contadorId);
+            listaDeTareas.add(nuevaTarea);
+            contadorId++;
+        }
+        else{
+            System.out.println("Has alcanzado el maximo de tareas.");
+        }
     }
     public void muestraTareas(){
         int index = 0;
@@ -126,25 +133,16 @@ public class ListaTareas
     public void verTareaMasPrioritaria2(){
         int maximaPrioridad = 0;
         int index = 0;
+        Tarea tareaConPrioridadMaxima = null;
         while(index < listaDeTareas.size()){
-            if(listaDeTareas.get(index).getPrioridad() > maximaPrioridad){
+            if(listaDeTareas.get(index).getPrioridad() >= maximaPrioridad){
                 maximaPrioridad = listaDeTareas.get(index).getPrioridad();
+                tareaConPrioridadMaxima = listaDeTareas.get(index);
             }
             index++;
         }
-        index = 0;
-        if(listaDeTareas.size() > 0){
-            Tarea tareaMasPrioritaria = listaDeTareas.get(0);
-            while(index < listaDeTareas.size()){
-                if(listaDeTareas.get(index).getPrioridad() == maximaPrioridad){
-                    tareaMasPrioritaria = listaDeTareas.get(index);
-                }
-                index++;
-            }
-            System.out.println((index + 1) + ". " + listaDeTareas.get(index).toString());
-        }
-        else{
-            System.out.println("No hay tareas en la lista.");
+        if(tareaConPrioridadMaxima != null){
+            System.out.println(tareaConPrioridadMaxima);
         }
     }
 }

@@ -11,16 +11,18 @@ public class Tarea
     private String nombreTarea;
     private int prioridad;
     private LocalDate fechaVencimiento;
+    private int id;
     /**
      * Constructor for objects of class Tareas
      */
-    public Tarea(String nombreTarea)
+    public Tarea(String nombreTarea,int id)
     {
         //Constructor de la Coleccion
         tareaEstaHecha = false;
         this.nombreTarea = nombreTarea;
         prioridad = 0;
         fechaVencimiento = null;
+        this.id = id;
     }
     /**
      * Devuelve el balor del atributo tareaEstaHecha
@@ -46,6 +48,7 @@ public class Tarea
         if(fechaVencimiento != null){
             textoADevolver = textoADevolver + " (" + fechaVencimiento + ")";
         }
+        textoADevolver = textoADevolver + " #" + id;
         return textoADevolver;
     }
     public void cambiarPrioridad(int nuevaPrioridad)
@@ -65,5 +68,8 @@ public class Tarea
     public int getPrioridad()
     {
         return prioridad;
+    }
+    public int getId(){
+        return id;  
     }
 }
